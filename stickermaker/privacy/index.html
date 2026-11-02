@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>개인정보 처리방침 · 스티커 메이커</title>
+<meta name="description" content="스티커 메이커 안드로이드 앱의 개인정보 처리방침">
+<style>
+:root{--fg:#2b2118;--muted:#6b5b4d;--bg:#fff4d6;--card:#fffaf0;--line:#e6d3a8;--accent:#b8381a;--focus:#1f5fbf;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root{--fg:#f6ece0;--muted:#c3b3a2;--bg:#1d1814;--card:#2a231d;--line:#4a3f35;--accent:#ff7a59;--focus:#8ab4ff}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:1rem/1.6 -apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;word-break:keep-all;overflow-wrap:anywhere}
+main{max-width:42rem;margin:0 auto;padding:1.25rem 1rem 3rem}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+h1{margin:0 0 .25rem;font-size:1.5rem;line-height:1.3}
+h2{margin:1.5rem 0 .5rem;font-size:1.125rem}
+.muted{color:var(--muted)}
+a{color:var(--accent)}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.875rem}
+th,td{padding:.375rem .5rem;border:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--card)}
+</style>
+</head>
+<body>
+<main class="doc">
+<h1>스티커 메이커 개인정보 처리방침</h1>
+<p class="muted">시행일: 2026-11-02</p>
+
+<p>스티커 메이커(이하 «앱»)는 사진에서 배경을 지우고 흰 테두리를 둘러 투명 PNG 스티커를 만드는 안드로이드 앱입니다.</p>
+
+<h2>요약</h2>
+<ul>
+<li><strong>사진은 기기 밖으로 나가지 않습니다.</strong> 배경 제거와 테두리·그림자 합성은 모두 휴대폰 안에서 처리됩니다.</li>
+<li>앱은 서버가 없고, 사진·스티커·사용 기록을 수집하거나 개발자에게 보내지 않습니다.</li>
+<li>앱에는 인터넷 권한이 없습니다. 계정 가입도, 광고도, 개발자가 넣은 분석 도구도 없습니다. 다만 배경 제거에 쓰는 Google ML Kit 가 사진 내용이 아닌 진단·사용 통계를 Google 에 보낼 수 있습니다(아래 «배경 제거 모델»).</li>
+</ul>
+
+<h2>앱이 다루는 정보</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>정보</th><th>용도</th><th>보관 위치</th><th>외부 전송</th></tr></thead>
+<tbody>
+<tr><td>사용자가 고른 사진</td><td>배경 제거와 스티커 합성</td><td>처리하는 동안 기기 메모리에만 둠(앱이 따로 복사해 두지 않음)</td><td>없음</td></tr>
+<tr><td>앱의 «사진 찍기»로 찍은 원본 사진</td><td>배경 제거와 스티커 합성, 같은 사진으로 다시 시도</td><td>앱 캐시(cache/camera). 가장 최근에 찍은 한 장만 남고, 다음 촬영이 성공하면 지워짐. 촬영을 취소하거나 실패하면 이전 사진은 그대로 남음</td><td>없음</td></tr>
+<tr><td>사용자가 저장한 스티커 PNG</td><td>갤러리 보관</td><td>기기의 Pictures/StickerMaker</td><td>없음</td></tr>
+<tr><td>공유용 임시 PNG</td><td>다른 앱으로 보내기</td><td>앱 캐시(cache/share). 마지막으로 공유한 한 장만 남고, 다음 공유가 성공하면 지워짐</td><td>사용자가 고른 앱으로만 전달</td></tr>
+<tr><td>클립보드용 임시 PNG</td><td>메신저 등에 붙여 넣기</td><td>앱 캐시(cache/clip). 마지막으로 복사한 한 장만 남고, 다음 복사가 성공하면 지워짐. 붙여 넣을 때 읽히므로 공유해도 지워지지 않음</td><td>사용자가 붙여 넣은 앱으로만 전달</td></tr>
+</tbody>
+</table>
+</div>
+<p>앱은 사진 접근 권한과 카메라 권한을 요청하지 않습니다. 사진은 Android 사진 선택기(Photo Picker), 다른 앱의 «공유», «사진 찍기»(기기의 카메라 앱을 열어 찍은 한 장을 받습니다)로 사용자가 고른 한 장만 전달받습니다.</p>
+
+<h2>배경 제거 모델</h2>
+<p>배경 제거는 Google ML Kit 의 Subject Segmentation 을 기기 안에서 실행합니다. 이 모델은 Google Play 서비스가 기기에 내려받아 관리하며(앱이 직접 인터넷에 접속하지 않습니다), 모델을 내려받을 때의 통신과 모델 자체의 동작은 <a href="https://developers.google.com/ml-kit/android-data-disclosure" rel="noopener">Google ML Kit 의 개인정보 안내</a>를 따릅니다. 사진 내용은 이 과정에서 Google 에 전송되지 않습니다.</p>
+<p>Google 의 안내에 따르면 ML Kit 는 진단과 사용 통계를 위해 기기 정보, 앱 정보, 기기 식별자와 설치별 식별자, 성능 지표, 기능 설정, 입력·출력 크기, 기능 버전, 이벤트 종류, 오류 코드를 HTTPS 로 암호화해 Google 에 보낼 수 있고, 이 정보를 제3자에게 넘기지 않습니다. 이 통신은 기기의 Google Play 서비스가 하며, 개발자는 이 정보를 받지 않습니다.</p>
+
+<h2>보관과 삭제</h2>
+<p>앱은 개인정보를 개발자에게 보내거나 서버에 저장하지 않습니다. 기기 안에는 위 표의 파일만 남습니다.</p>
+<ul>
+<li>저장한 스티커는 갤러리(Pictures/StickerMaker)에서 직접 지웁니다. 앱을 삭제해도 갤러리에 저장한 스티커는 남습니다.</li>
+<li>앱 캐시의 촬영 원본과 공유·클립보드용 임시 PNG 는 기기의 설정 → 앱 → 스티커 메이커 → 저장공간 → «캐시 지우기»로 언제든 지울 수 있습니다. 앱을 삭제하면 앱 캐시도 함께 사라집니다. 저장공간이 부족하면 Android 가 캐시를 먼저 지울 수도 있습니다.</li>
+<li>캐시를 지운 뒤에는 클립보드에 복사해 둔 스티커를 붙여 넣을 수 없고, 마지막으로 찍은 사진으로 다시 시도할 수 없습니다.</li>
+</ul>
+
+<h2>아동</h2>
+<p>앱은 개인정보를 수집하지 않으므로 연령과 관계없이 쓸 수 있습니다.</p>
+
+<h2>웹 버전</h2>
+<p>이 문서는 안드로이드 앱에 관한 것입니다. 같은 이름의 웹 버전은 사진을 서버로 보내 처리하므로 방식이 다릅니다. 웹 버전 서버는 받은 사진을 메모리에서만 처리하고 디스크에 저장하지 않습니다. 만든 스티커도 응답으로 돌려준 뒤 서버에 남기지 않고, 사진과 스티커 응답은 브라우저 캐시에도 저장하지 않게 합니다. 다른 앱에서 웹 앱으로 사진을 공유하면 화면에 넘기기 위해 그 사진을 브라우저 캐시에 잠시 둡니다. 화면이 가져가면 바로 지우고, 2분 안에 가져가지 않으면 쓰지 않으며 다음에 웹 앱을 열거나 사진을 공유받을 때 지웁니다.</p>
+
+<h2>변경</h2>
+<p>처리 방식이 달라지면 이 문서를 고치고 시행일을 바꿉니다.</p>
+
+<h2>문의</h2>
+<p>문의는 Google Play 스토어의 앱 페이지에 있는 «개발자 연락처» 이메일로 보내 주세요.</p>
+
+</main>
+</body>
+</html>
