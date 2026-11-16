@@ -4,3 +4,5 @@ ghbcompany 앱의 공개 문서(개인정보 처리방침 등)를 GitHub Pages �
 
 - 스티커 메이커: `stickermaker/privacy/` → https://ghbcompany.github.io/stickermaker/privacy/
   - 원본은 비공개 저장소 sticker-maker 의 `docs/privacy-policy.md`·`app/static/privacy.html` 이다(마지막 동기화: sticker-maker main 58c16c7). 원본을 고치면 이 파일도 같이 고친다.
+- 삐삐: `beepbeep/privacy/`, `beepbeep/delete-account/` → https://ghbcompany.github.io/beepbeep/privacy/ · https://ghbcompany.github.io/beepbeep/delete-account/
+  - 원본은 비공개 저장소 beepbeep 의 `docs/privacy-policy.md`·`docs/delete-account.md` 이다(동기화 기준: beepbeep PR #21·#22 의 리뷰 반영본). 원본을 고치면 이 파일도 같이 고친다.
