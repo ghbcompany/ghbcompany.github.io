@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>개인정보 처리방침 · 삐삐</title>
+<meta name="description" content="삐삐 안드로이드 앱의 개인정보 처리방침">
+<style>
+:root{--fg:#2b2118;--muted:#6b5b4d;--bg:#fff4d6;--card:#fffaf0;--line:#e6d3a8;--accent:#b8381a;--focus:#1f5fbf;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root{--fg:#f6ece0;--muted:#c3b3a2;--bg:#1d1814;--card:#2a231d;--line:#4a3f35;--accent:#ff7a59;--focus:#8ab4ff}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:1rem/1.6 -apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;word-break:keep-all;overflow-wrap:anywhere}
+main{max-width:42rem;margin:0 auto;padding:1.25rem 1rem 3rem}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+h1{margin:0 0 .25rem;font-size:1.5rem;line-height:1.3}
+h2{margin:1.5rem 0 .5rem;font-size:1.125rem}
+.muted{color:var(--muted)}
+a{color:var(--accent)}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.875rem}
+th,td{padding:.375rem .5rem;border:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--card)}
+</style>
+</head>
+<body>
+<main class="doc">
+<h1>삐삐 개인정보 처리방침</h1>
+<p class="muted">시행일: 2026-11-16 · 앱: 삐삐(kr.ghbcode.beepbeep) · 개발자: ghbcompany(정희석) · 문의: Play 스토어 삐삐 앱 페이지의 «개발자 연락처» 이메일</p>
+
+<p>삐삐는 가족이 서로를 호출하는 앱입니다. 호출은 무음·진동 상태에서도 소리가 납니다. 서비스에 꼭 필요한 정보만 모읍니다.</p>
+
+<h2>모으는 정보</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>정보</th><th>왜 필요한가</th><th>어디에 있나</th></tr></thead>
+<tbody>
+<tr><td>표시 이름(내가 정한 이름)</td><td>호출을 받는 사람에게 «누가 불렀는지» 보여 주고 그룹 구성원 목록에 표시</td><td>서버(Google Firestore)</td></tr>
+<tr><td>익명 계정 ID(Firebase 익명 로그인이 만든 임의 ID)</td><td>내 계정과 그룹을 구분</td><td>Firebase Authentication, 서버</td></tr>
+<tr><td>알림 등록 토큰(FCM 토큰)</td><td>호출을 내 기기로 전달</td><td>서버</td></tr>
+<tr><td>가족 그룹 정보(그룹 이름, 구성원, 방장 여부, 초대 링크의 해시)</td><td>가족 그룹 운영</td><td>서버</td></tr>
+<tr><td>호출 기록(누가 누구에게 언제 보냈는지, 확인 여부)</td><td>호출 전달·확인 알림, 남용 방지를 위한 호출 횟수 제한</td><td>서버</td></tr>
+<tr><td>호출 횟수 제한용 마지막 호출 시각</td><td>짧은 시간에 반복 호출하는 것을 막음</td><td>서버</td></tr>
+<tr><td>접속 IP 주소, 기기 정보(Firebase 가 자동 수집)</td><td>익명 계정을 만들고 로그인할 때 보안과 남용 방지</td><td>Google Firebase</td></tr>
+<tr><td>Firebase 설치 ID, 앱 버전</td><td>알림 전달(FCM)과 Firebase 서비스 운영</td><td>Google Firebase</td></tr>
+</tbody>
+</table>
+</div>
+<p>위 마지막 두 줄은 삐삐 서버가 아니라 Firebase SDK 가 자동으로 수집하는 정보이며, Google 의 정책에 따라 처리됩니다(<a href="https://firebase.google.com/docs/android/play-data-disclosure" rel="noopener">Firebase 데이터 공개 안내</a>).</p>
+<p>모으지 않는 정보: 전화번호, 이메일, 연락처, 위치, 사진, 마이크·카메라 입력, 광고 식별자. 광고를 보여 주지 않고, 분석(통계) 도구를 쓰지 않습니다.</p>
+<p>앱은 호출 소리를 내고 화면을 켜기 위해 알림, 방해금지 접근, 전체 화면 알림, 포그라운드 서비스 권한을 요청합니다. 이 권한으로 얻은 정보는 서버로 보내지 않습니다.</p>
+
+<h2>기기에 저장하는 정보</h2>
+<p>앱이 기기에 남기는 값은 두 곳입니다.</p>
+<ul>
+<li>앱 설정 파일: 마지막으로 쓴 내 이름, 내가 만든 그룹의 초대 링크, 초대 링크로 들어오는 중일 때의 초대 토큰(임시), 계정 삭제 진행 상태와 실패 횟수. 이름은 그룹 가입 때, 초대 토큰은 가입을 확인할 때 서버로 보내지만 이 파일 자체는 서버로 올라가지 않습니다. «계정 삭제»가 끝나면(계정 삭제를 몇 번 다시 시도해도 안 될 때 로그아웃하는 경우 포함) 이 파일의 값이 모두 지워집니다.</li>
+<li>알람 볼륨 파일: 호출이 울리는 동안만 원래 알람 볼륨 숫자 하나를 두고, 호출이 끝나 볼륨을 되돌리면 지웁니다. 서버로 보내지 않으며 «계정 삭제»와 별개로 관리됩니다.</li>
+</ul>
+<p>위치·연락처·기기 고유 식별자는 저장하지 않습니다.</p>
+
+<h2>어떻게 쓰나</h2>
+<p>위 정보는 호출을 보내고 받고, 가족 그룹을 운영하는 데만 씁니다. 판매하거나 광고에 쓰지 않고, 서비스를 돌리는 Google(Firebase)·Cloudflare 외에는 제3자에게 넘기지 않습니다. 전송 구간은 HTTPS 로 암호화합니다.</p>
+
+<h2>서비스 제공사</h2>
+<ul>
+<li>Google Firebase(Authentication, Firestore, Cloud Messaging): 계정·데이터 저장과 알림 전달. <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase 개인정보 안내</a></li>
+<li>Cloudflare(Workers): 앱과 서버 사이의 요청을 처리. 접속 IP 같은 요청 정보가 Cloudflare 정책에 따라 일시 처리됩니다. 앱은 이를 저장하지 않습니다.</li>
+</ul>
+
+<h2>보관과 삭제</h2>
+<ul>
+<li>앱의 «계정 삭제»를 누르면 서버가 표시 이름, 그룹 가입 정보, 내가 보내거나 받은 호출 기록, 알림 등록 토큰을 지웁니다. 이어서 앱이 익명 계정(Firebase Authentication)을 지우는데, 네트워크 문제로 실패하면 몇 번 다시 시도하고 그래도 안 되면 로그아웃만 하고 계정이 남을 수 있습니다. 서버 정리가 끝나지 않았다면 앱을 다시 열 때 이어서 진행합니다.</li>
+<li>앱을 지운 뒤에도 서버 데이터를 지우고 싶은 경우의 안내는 <a href="../delete-account/">계정·데이터 삭제 안내</a>에 있습니다(요청 경로는 준비 중입니다).</li>
+<li>삭제 뒤에는 계정 ID 와 삭제 시각만 남기는 «삭제 표식»이 있습니다. 같은 계정으로 데이터가 다시 생기지 않게 하려는 것입니다.</li>
+<li>그룹 초대 링크는 7일 뒤 만료됩니다.</li>
+</ul>
+
+<h2>아동</h2>
+<p>만 13세 미만을 대상으로 하지 않습니다.</p>
+
+<h2>바뀔 때</h2>
+<p>내용이 바뀌면 이 쪽과 시행일을 고칩니다. 중요한 변경은 앱에서 알립니다.</p>
+</main>
+</body>
+</html>
