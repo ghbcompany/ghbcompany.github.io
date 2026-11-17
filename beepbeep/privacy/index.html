@@ -66,7 +66,7 @@ th{background:var(--card)}
 <p>새 버전이 있으면 앱 첫 화면에 알려 줍니다. 이 확인은 Google Play 가 맡습니다(Play 앱 내 업데이트). 확인할 때 Google 은 기기 정보, 앱 버전, 설치된 모듈 목록을 받으며, 개발자는 이 값을 받지 않습니다. Play 로 설치하지 않았거나 확인에 실패하면 안내를 띄우지 않습니다. 업데이트 안내는 호출이 울리는 중에는 띄우지 않습니다.</p>
 
 <h2>앱 무결성 확인(Firebase App Check)</h2>
-<p>삐삐 서버에 요청을 보낼 때 앱은 «정품 삐삐 앱에서 온 요청인지» 확인하는 토큰(Firebase App Check)을 함께 보냅니다. 정식 배포본에서는 Google Play Integrity 가 이 토큰을 발급하며, 이 과정에서 Google 은 앱과 기기의 무결성 확인에 필요한 정보를 처리합니다(<a href="https://firebase.google.com/docs/app-check" rel="noopener">Firebase App Check 안내</a>). 토큰은 가짜 앱이나 자동화된 도구가 서버를 남용하는 것을 막는 데만 쓰고, 개발자가 이 정보를 따로 저장하거나 다른 곳에 쓰지 않습니다.</p>
+<p>삐삐 서버에 요청을 보낼 때 앱은 «정품 삐삐 앱에서 온 요청인지» 확인하는 토큰(Firebase App Check)을 함께 보냅니다. 정식 배포본에서는 Google Play Integrity 가 이 토큰을 발급하며, 이 과정에서 Google 은 앱과 기기의 무결성 확인에 필요한 정보를 처리합니다(<a href="https://firebase.google.com/docs/app-check" rel="noopener">Firebase App Check 안내</a>). 서버는 설정이 켜진 경우에만 이 토큰을 검증하며, 토큰을 발급받지 못하면 앱은 토큰 없이 요청합니다. 토큰은 가짜 앱이나 자동화된 도구가 서버를 남용하는 것을 막는 데만 쓰고, 개발자가 이 정보를 따로 저장하거나 다른 곳에 쓰지 않습니다.</p>
 
 <h2>서비스 제공사</h2>
 <ul>
