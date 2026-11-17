@@ -26,7 +26,7 @@ th{background:var(--card)}
 <body>
 <main class="doc">
 <h1>삐삐 개인정보 처리방침</h1>
-<p class="muted">시행일: 2026-11-16 · 앱: 삐삐(kr.ghbcode.beepbeep) · 개발자: ghbcompany(정희석) · 문의: Play 스토어 삐삐 앱 페이지의 «개발자 연락처» 이메일</p>
+<p class="muted">시행일: 2026-11-17 · 앱: 삐삐(kr.ghbcode.beepbeep) · 개발자: ghbcompany(정희석) · 문의: Play 스토어 삐삐 앱 페이지의 «개발자 연락처» 이메일</p>
 
 <p>삐삐는 가족이 서로를 호출하는 앱입니다. 호출은 무음·진동 상태에서도 소리가 납니다. 서비스에 꼭 필요한 정보만 모읍니다.</p>
 
@@ -65,9 +65,12 @@ th{background:var(--card)}
 <h2>앱 업데이트 안내</h2>
 <p>새 버전이 있으면 앱 첫 화면에 알려 줍니다. 이 확인은 Google Play 가 맡습니다(Play 앱 내 업데이트). 확인할 때 Google 은 기기 정보, 앱 버전, 설치된 모듈 목록을 받으며, 개발자는 이 값을 받지 않습니다. Play 로 설치하지 않았거나 확인에 실패하면 안내를 띄우지 않습니다. 업데이트 안내는 호출이 울리는 중에는 띄우지 않습니다.</p>
 
+<h2>앱 무결성 확인(Firebase App Check)</h2>
+<p>삐삐 서버에 요청을 보낼 때 앱은 «정품 삐삐 앱에서 온 요청인지» 확인하는 토큰(Firebase App Check)을 함께 보냅니다. 정식 배포본에서는 Google Play Integrity 가 이 토큰을 발급하며, 이 과정에서 Google 은 앱과 기기의 무결성 확인에 필요한 정보를 처리합니다(<a href="https://firebase.google.com/docs/app-check" rel="noopener">Firebase App Check 안내</a>). 토큰은 가짜 앱이나 자동화된 도구가 서버를 남용하는 것을 막는 데만 쓰고, 개발자가 이 정보를 따로 저장하거나 다른 곳에 쓰지 않습니다.</p>
+
 <h2>서비스 제공사</h2>
 <ul>
-<li>Google Firebase(Authentication, Firestore, Cloud Messaging): 계정·데이터 저장과 알림 전달. <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase 개인정보 안내</a></li>
+<li>Google Firebase(Authentication, Firestore, Cloud Messaging, App Check): 계정·데이터 저장, 알림 전달, 앱 무결성 확인. <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase 개인정보 안내</a></li>
 <li>Cloudflare(Workers): 앱과 서버 사이의 요청을 처리. 접속 IP 같은 요청 정보가 Cloudflare 정책에 따라 일시 처리됩니다. 앱은 이를 저장하지 않습니다.</li>
 </ul>
 
